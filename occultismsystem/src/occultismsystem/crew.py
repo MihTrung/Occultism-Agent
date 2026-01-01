@@ -7,8 +7,8 @@ from typing import List
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
 @CrewBase
-class Occultismsystem():
-    """Occultismsystem crew"""
+class OccultismAgent():
+    """OccultismAgent crew"""
 
     agents: List[BaseAgent]
     tasks: List[Task]
@@ -20,38 +20,51 @@ class Occultismsystem():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def Astro_data_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
+            config=self.agents_config['astro_data_agent'], # type: ignore[index]
             verbose=True
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def astro_interpretation_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['astro_interpretation_agent'], # type: ignore[index]
             verbose=True
+        )
+    
+    @agent
+    def translation_agent(self) -> Agent:
+        return Agent(
+            config=self.agents_config['translation_agent'],
+            verbose=True          
         )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def natal_chart_data_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['natal_chart_data_task'], # type: ignore[index]
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def astrology_interpretation_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
+            config=self.tasks_config['astrology_interpretation_task'], # type: ignore[index]
             output_file='report.md'
+        )
+
+    @task
+    def translation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['translation_task'], # type: ignore[index]
         )
 
     @crew
     def crew(self) -> Crew:
-        """Creates the Occultismsystem crew"""
+        """Creates the OccultismAgent crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 

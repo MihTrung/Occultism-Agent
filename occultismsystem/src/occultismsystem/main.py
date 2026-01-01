@@ -17,9 +17,13 @@ def run():
     """
     Run the crew.
     """
+    language = input("Which your best language? ")
+    day = input("Give me your birhtday (example: 1/1/2000): ")
+    hour = input("Then your birth hour (example: 9:30AM): ")
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'topic': f'{hour} {day}',
+        'current_year': str(datetime.now().year),
+        'target_language': language
     }
 
     try:
