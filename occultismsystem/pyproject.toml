@@ -1,0 +1,24 @@
+[project]
+name = "occultismsystem"
+version = "0.1.0"
+description = "OccultismSystem using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]==1.7.2"
+]
+
+[project.scripts]
+occultismsystem = "occultismsystem.main:run"
+run_crew = "occultismsystem.main:run"
+train = "occultismsystem.main:train"
+replay = "occultismsystem.main:replay"
+test = "occultismsystem.main:test"
+run_with_trigger = "occultismsystem.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

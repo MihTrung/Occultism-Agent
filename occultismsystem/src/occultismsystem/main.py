@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from occultism_agent.crew import OccultismAgent
+from occultismsystem.crew import Occultismsystem
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -17,17 +17,13 @@ def run():
     """
     Run the crew.
     """
-    language = input("Which your best language? ")
-    day = input("Give me your birhtday (example: 1/1/2000): ")
-    hour = input("Then your birth hour (example: 9:30AM): ")
     inputs = {
-        'topic': f'{hour} {day}',
-        'current_year': str(datetime.now().year),
-        'target_language': language
+        'topic': 'AI LLMs',
+        'current_year': str(datetime.now().year)
     }
 
     try:
-        OccultismAgent().crew().kickoff(inputs=inputs)
+        Occultismsystem().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -41,7 +37,7 @@ def train():
         'current_year': str(datetime.now().year)
     }
     try:
-        OccultismAgent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        Occultismsystem().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -51,7 +47,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        OccultismAgent().crew().replay(task_id=sys.argv[1])
+        Occultismsystem().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -66,7 +62,7 @@ def test():
     }
 
     try:
-        OccultismAgent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        Occultismsystem().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -92,7 +88,7 @@ def run_with_trigger():
     }
 
     try:
-        result = OccultismAgent().crew().kickoff(inputs=inputs)
+        result = Occultismsystem().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")
