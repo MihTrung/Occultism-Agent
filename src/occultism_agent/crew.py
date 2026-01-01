@@ -32,6 +32,13 @@ class OccultismAgent():
             config=self.agents_config['astro_interpretation_agent'], # type: ignore[index]
             verbose=True
         )
+    
+    @agent
+    def translation_agent(self) -> Agent:
+        return Agent(
+            config=self.agents_config['translation_agent'],
+            verbose=True          
+        )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -43,10 +50,16 @@ class OccultismAgent():
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def astrology_interpretation_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
+            config=self.tasks_config['astrology_interpretation_task'], # type: ignore[index]
             output_file='report.md'
+        )
+
+    @task
+    def translation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['translation_task'], # type: ignore[index]
         )
 
     @crew
