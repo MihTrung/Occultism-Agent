@@ -1,6 +1,6 @@
 natal_chart_data_task:
   description: >
-    Using only the provided birth information ({topic}),
+    Using only the provided birth information ({topic}), Format: birth time, DD/MM/YYYY.
     compute the individual's natal astrology chart.
     
     Focus strictly on technical accuracy when determining
@@ -20,7 +20,7 @@ natal_chart_data_task:
 astrology_interpretation_task:
   description: >
     Review the structured natal chart data produced from the
-    user's birth information ({topic}).
+    user's birth information ({topic}). Format: birth time, DD/MM/YYYY.
 
     Interpret the astrological symbols and configurations in a
     reflective and non-deterministic manner. Use the current
@@ -38,16 +38,37 @@ astrology_interpretation_task:
 translation_task:
   description: >
     Translate the provided English astrology report
-    into {target_language}.
+    into {target_language}, with a strong emphasis on
+    readability, engagement, and reader interest.
 
-    Preserve the original meaning, tone, structure,
-    and nuance of the text. Do not add explanations,
-    interpretations, summaries, or cultural commentary.
+    The translation should be easy to follow and
+    engaging for general readers, including those
+    with no prior knowledge of astrology.
 
-    The translation should be fluent and natural for
-    native speakers of {target_language}.
+    While preserving the original meaning, intent,
+    and structure, you should:
+    - Emphasize key ideas that are likely to capture
+      the reader’s attention.
+    - Improve flow and rhythm to guide the reader
+      smoothly through the text.
+    - Break up long or dense passages into clearer,
+      more digestible segments when appropriate.
+
+    You may rephrase sentences and simplify abstract
+    or technical language, as long as no new meaning,
+    interpretation, or information is added.
+
+    Do NOT introduce new insights, opinions, summaries,
+    explanations, or cultural commentary. All emphasis
+    must come solely from clearer wording and better
+    presentation of the original content.
+
+    The final result should feel natural, engaging,
+    and accessible to native speakers of {target_language}.
   expected_output: >
-    A complete and faithful translation of the original
-    English astrology report in {target_language}, with
-    no changes to meaning, intent, or structure.
-  agent: astrology_translation_agent
+    A complete translation of the original astrology
+    report in {target_language} that preserves its
+    meaning while clearly highlighting the most
+    interesting and engaging ideas for non-expert readers.
+  agent: translation_agent
+

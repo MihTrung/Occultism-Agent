@@ -13,13 +13,53 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
+def format_day (day):
+    days = day.split("/")[0]
+    month = int(day.split("/")[1])
+    year = day.split("/")[2]
+    match month:
+        case 1:
+            smonth = 'January'
+        case 2:
+            smonth = 'February'
+        case 3: 
+            smonth = 'March'
+        case 4: 
+            smonth = 'April'
+        case 5: 
+            smonth = 'May'
+        case 6: 
+            smonth = 'June'
+        case 7: 
+            smonth = 'July'
+        case 8: 
+            smonth = 'August'
+        case 9: 
+            smonth = 'September'
+        case 10: 
+            smonth = 'October'
+        case 11: 
+            smonth = 'November'
+        case 12: 
+            smonth = 'December'
+        case _:
+            smonth = None
+    new_day = f'{days} {smonth} {year}'
+    return new_day
+
 def run():
     """
     Run the crew.
     """
     language = input("Which your best language? ")
     day = input("Give me your birhtday (example: 1/1/2000): ")
+    day = format_day(day)
     hour = input("Then your birth hour (example: 9:30AM): ")
+    # Example: 
+    # language = "vietnamese"
+    # day = "6/7/2006"
+    # hour = "12:50PM"
+    
     inputs = {
         'topic': f'{hour} {day}',
         'current_year': str(datetime.now().year),
