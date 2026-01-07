@@ -5,6 +5,7 @@ Structure of .env file is
 
 .env
 `MODEL=gemini/gemini-flash-latest`
+
 `GOOGLE_API_KEY= <your API key>`
 
 
